@@ -27,7 +27,7 @@
   flex-direction: column;
 }
 
-.form_button {
+.form__button {
   padding: 0;
   border: 0;
   margin: 0 auto;
@@ -62,7 +62,7 @@
     width: 238px;
   }
 
-  .form_button {
+  .form__button {
     font-size: 14px;
     width: 238px;
     height: 46px;
@@ -78,7 +78,7 @@
     width: 100vw;
   }
 
-  .form_button {
+  .form__button {
     width: 100vw;
   }
 }
