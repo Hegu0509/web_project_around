@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Página Around The US" />
+    <meta name="author" content="Gustavo Morales" />
+    <meta name="keywords" content="HTML, CSS, Responsive" />
+
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Around The U.S.</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          src="./images/logo_around.svg"
+          alt="Logotipo Around US"
+          class="header__logo"
+        />
+        <img
+          src="./images/line_header.png"
+          alt="Linea para el encabezado"
+          class="header__line"
+        />
+      </header>
+      <main class="content">
+        <section class="profile" id="profile">
+          <div class="profile__info">
+            <img
+              src="./images/avatar.png"
+              alt="Foto de Jacques Cousteau"
+              class="profile__avatar"
+            />
+            <div class="profile__info-column">
+              <div class="profile__info-row">
+                <p class="profile__info-name">Jacques Cousteau</p>
+                <button class="profile__info-edit-button" type="button">
+                  <img src="./images/icons/edit.svg" alt="Icono editar" />
+                </button>
+              </div>
+
+              <p class="profile__info-occupation">Explorador</p>
+            </div>
+          </div>
+          <button class="profile__info-add-button" type="button">+</button>
+        </section>
+
+        <section class="place-grid">
+          <div class="place-grid__element">
+            <img
+              src="./images/icons/trash.svg"
+              alt="Icono Eliminar"
+              class="place-grid__element-icon-trash"
+            />
+            <img
+              src="./images/places/yosemite.jpg"
+              alt="Valle de Yosemite"
+              class="place-grid__element-image"
+            />
+            <div class="place-grid__element-row">
+              <p class="place-grid__element-text">Valle de Yosemite</p>
+              <button
+                class="place-grid__element-icon-like"
+                type="button"
+              ></button>
+            </div>
+          </div>
+
+          <div class="place-grid__element">
+            <img
+              src="./images/icons/trash.svg"
+              alt="Icono Eliminar"
+              class="place-grid__element-icon-trash"
+            />
+            <img
+              src="./images/places/lake-louise.jpg"
+              alt="Lago Louise"
+              class="place-grid__element-image"
+            />
+            <div class="place-grid__element-row">
+              <p class="place-grid__element-text">Lago Louise</p>
+              <button
+                class="place-grid__element-icon-like"
+                type="button"
+              ></button>
+            </div>
+          </div>
+
+          <div class="place-grid__element">
+            <img
+              src="./images/icons/trash.svg"
+              alt="Icono Eliminar"
+              class="place-grid__element-icon-trash"
+            />
+            <img
+              src="./images/places/bald-mountains.jpg"
+              alt="Montañas Calvas"
+              class="place-grid__element-image"
+            />
+            <div class="place-grid__element-row">
+              <p class="place-grid__element-text">Montañas Calvas</p>
+              <button
+                class="place-grid__element-icon-like"
+                type="button"
+              ></button>
+            </div>
+          </div>
+
+          <div class="place-grid__element">
+            <img
+              src="./images/icons/trash.svg"
+              alt="Icono Eliminar"
+              class="place-grid__element-icon-trash"
+            />
+            <img
+              src="./images/places/lago.jpg"
+              alt="Icono agregar"
+              class="place-grid__element-image"
+            />
+            <div class="place-grid__element-row">
+              <p class="place-grid__element-text">Lago</p>
+              <button
+                class="place-grid__element-icon-like"
+                type="button"
+              ></button>
+            </div>
+          </div>
+
+          <div class="place-grid__element">
+            <img
+              src="./images/icons/trash.svg"
+              alt="Icono Eliminar"
+              class="place-grid__element-icon-trash"
+            />
+            <img
+              src="./images/places/latemar.jpg"
+              alt="Icono agregar"
+              class="place-grid__element-image"
+            />
+            <div class="place-grid__element-row">
+              <p class="place-grid__element-text">Latemar</p>
+              <button
+                class="place-grid__element-icon-like"
+                type="button"
+              ></button>
+            </div>
+          </div>
+
+          <div class="place-grid__element">
+            <img
+              src="./images/icons/trash.svg"
+              alt="Icono Eliminar"
+              class="place-grid__element-icon-trash"
+            />
+            <img
+              src="./images/places/vanoise.jpg"
+              alt="Icono agregar"
+              class="place-grid__element-image"
+            />
+            <div class="place-grid__element-row">
+              <p class="place-grid__element-text">Parque Nacional Vanoise</p>
+              <button
+                class="place-grid__element-icon-like"
+                type="button"
+              ></button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2024. Gustavo Morales</p>
+      </footer>
+      <div class="popup">
+        <div class="popup__container">
+          <img
+            src="./images/icons/close.png"
+            alt="Icono cerrar ventana"
+            class="popup__close-icon"
+          />
+          <h2 class="popup__title">Editar perfil</h2>
+          <form class="popup__form form">
+            <fieldset class="form__fieldset">
+              <div class="form__element">
+                <input
+                  type="text"
+                  id="inputName"
+                  placeholder="Nombre"
+                  class="form__input"
+                  value=""
+                />
+                <img
+                  src="./images/input_line.png"
+                  alt="Linea de caja de texto"
+                  class="form__input-line"
+                />
+              </div>
+
+              <div class="form__element">
+                <input
+                  type="text"
+                  id="inputAbout"
+                  placeholder="Acerca de mi"
+                  class="form__input"
+                  value=""
+                />
+                <img
+                  src="./images/input_line.png"
+                  alt="Linea de caja de texto"
+                  class="form__input-line"
+                />
+              </div>
+            </fieldset>
+            <button type="submit" class="form_button">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
