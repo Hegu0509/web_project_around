@@ -1,4 +1,4 @@
-# Tripleten web_project_homeland
+# Tripleten web_project_around
 
 # Description: Practica sobre diseño adaptativo para resoluciones 1280px, 768px, 320px
 
