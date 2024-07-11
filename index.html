@@ -48,132 +48,12 @@
           <button class="profile__info-add-button" type="button">+</button>
         </section>
 
-        <section class="place-grid">
-          <div class="place-grid__element">
-            <img
-              src="./images/icons/trash.svg"
-              alt="Icono Eliminar"
-              class="place-grid__element-icon-trash"
-            />
-            <img
-              src="./images/places/yosemite.jpg"
-              alt="Valle de Yosemite"
-              class="place-grid__element-image"
-            />
-            <div class="place-grid__element-row">
-              <p class="place-grid__element-text">Valle de Yosemite</p>
-              <button
-                class="place-grid__element-icon-like"
-                type="button"
-              ></button>
-            </div>
-          </div>
-
-          <div class="place-grid__element">
-            <img
-              src="./images/icons/trash.svg"
-              alt="Icono Eliminar"
-              class="place-grid__element-icon-trash"
-            />
-            <img
-              src="./images/places/lake-louise.jpg"
-              alt="Lago Louise"
-              class="place-grid__element-image"
-            />
-            <div class="place-grid__element-row">
-              <p class="place-grid__element-text">Lago Louise</p>
-              <button
-                class="place-grid__element-icon-like"
-                type="button"
-              ></button>
-            </div>
-          </div>
-
-          <div class="place-grid__element">
-            <img
-              src="./images/icons/trash.svg"
-              alt="Icono Eliminar"
-              class="place-grid__element-icon-trash"
-            />
-            <img
-              src="./images/places/bald-mountains.jpg"
-              alt="Montañas Calvas"
-              class="place-grid__element-image"
-            />
-            <div class="place-grid__element-row">
-              <p class="place-grid__element-text">Montañas Calvas</p>
-              <button
-                class="place-grid__element-icon-like"
-                type="button"
-              ></button>
-            </div>
-          </div>
-
-          <div class="place-grid__element">
-            <img
-              src="./images/icons/trash.svg"
-              alt="Icono Eliminar"
-              class="place-grid__element-icon-trash"
-            />
-            <img
-              src="./images/places/lago.jpg"
-              alt="Icono agregar"
-              class="place-grid__element-image"
-            />
-            <div class="place-grid__element-row">
-              <p class="place-grid__element-text">Lago</p>
-              <button
-                class="place-grid__element-icon-like"
-                type="button"
-              ></button>
-            </div>
-          </div>
-
-          <div class="place-grid__element">
-            <img
-              src="./images/icons/trash.svg"
-              alt="Icono Eliminar"
-              class="place-grid__element-icon-trash"
-            />
-            <img
-              src="./images/places/latemar.jpg"
-              alt="Icono agregar"
-              class="place-grid__element-image"
-            />
-            <div class="place-grid__element-row">
-              <p class="place-grid__element-text">Latemar</p>
-              <button
-                class="place-grid__element-icon-like"
-                type="button"
-              ></button>
-            </div>
-          </div>
-
-          <div class="place-grid__element">
-            <img
-              src="./images/icons/trash.svg"
-              alt="Icono Eliminar"
-              class="place-grid__element-icon-trash"
-            />
-            <img
-              src="./images/places/vanoise.jpg"
-              alt="Icono agregar"
-              class="place-grid__element-image"
-            />
-            <div class="place-grid__element-row">
-              <p class="place-grid__element-text">Parque Nacional Vanoise</p>
-              <button
-                class="place-grid__element-icon-like"
-                type="button"
-              ></button>
-            </div>
-          </div>
-        </section>
+        <section class="place-grid"></section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2024. Gustavo Morales</p>
       </footer>
-      <div class="popup">
+      <div class="popup" id="popupEdit">
         <div class="popup__container">
           <img
             src="./images/icons/close.png"
@@ -181,7 +61,7 @@
             class="popup__close-icon"
           />
           <h2 class="popup__title">Editar perfil</h2>
-          <form class="popup__form form">
+          <form class="popup__form form" id="formEdit">
             <fieldset class="form__fieldset">
               <div class="form__element">
                 <input
@@ -217,8 +97,88 @@
           </form>
         </div>
       </div>
-    </div>
 
-    <script src="scripts/script.js"></script>
+      <div class="popup" id="popupAdd">
+        <div class="popup__container">
+          <img
+            src="./images/icons/close.png"
+            alt="Icono cerrar ventana"
+            class="popup__close-icon"
+          />
+          <h2 class="popup__title">Nuevo lugar</h2>
+          <form class="popup__form form" id="formAdd">
+            <fieldset class="form__fieldset">
+              <div class="form__element">
+                <input
+                  type="text"
+                  id="inputTitle"
+                  placeholder="Titulo"
+                  class="form__input"
+                  value=""
+                />
+                <img
+                  src="./images/input_line.png"
+                  alt="Linea de caja de texto"
+                  class="form__input-line"
+                />
+              </div>
+
+              <div class="form__element">
+                <input
+                  type="text"
+                  id="inputLink"
+                  placeholder="Enlace de la imagen"
+                  class="form__input"
+                  value=""
+                />
+                <img
+                  src="./images/input_line.png"
+                  alt="Linea de caja de texto"
+                  class="form__input-line"
+                />
+              </div>
+            </fieldset>
+            <button type="submit" class="form__button">Crear</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup" id="popupImage">
+        <div class="popup__container-image">
+          <img
+            src="./images/icons/close.png"
+            alt="Icono cerrar ventana"
+            class="popup__close-icon-image"
+          />
+          <img
+            class="popup__image"
+            src="./images/places/bald-mountains.jpg"
+            id="image"
+            alt="Imagen del popup"
+          />
+          <p class="popup__image-name" id="imageName"></p>
+        </div>
+      </div>
+
+      <template id="templateCard">
+        <div class="place-grid__element">
+          <img
+            src="./images/icons/trash.svg"
+            alt="Icono Eliminar"
+            class="place-grid__element-icon-trash"
+          />
+          <img class="place-grid__element-image" />
+          <div class="place-grid__element-row">
+            <p class="place-grid__element-text"></p>
+            <button
+              class="place-grid__element-icon-like"
+              type="button"
+            ></button>
+          </div>
+        </div>
+      </template>
+
+      <script src="scripts/script.js"></script>
+    </div>
   </body>
 </html>

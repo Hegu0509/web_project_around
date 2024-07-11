@@ -50,11 +50,12 @@
 }
 
 .place-grid__element-icon-like {
-  background: url("../images/icons/like.png");
+  background: url("../images/icons/like.png") no-repeat center center;
   background-size: contain;
   border: none;
-  width: 21px;
+  width: 22px;
   height: 19px;
+  padding: 0;
 }
 
 .place-grid__element-icon-like:hover {
@@ -62,7 +63,7 @@
   filter: opacity(0.5);
 }
 
-.place-grid__element-icon-like:active {
+.place-grid__element-icon-like_active {
   background: url("../images/icons/like-active.png") no-repeat center center;
   background-size: contain;
 }
@@ -73,6 +74,11 @@
   position: absolute;
   top: 18px;
   left: 248px;
+}
+
+.place-grid__element-icon-trash:hover {
+  cursor: url(../images/icons/pointer.svg), auto;
+  filter: opacity(0.5);
 }
 
 @media screen and (max-width: 1279px) and (min-width: 880px) {
