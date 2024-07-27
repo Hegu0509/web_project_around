@@ -84,6 +84,7 @@ function addEventListenersToCard(cardElement) {
       popupImage.querySelector(".popup__image").src = evt.target.src;
       popupImage.querySelector(".popup__image-name").textContent =
         evt.target.alt;
+      document.addEventListener("keydown", escEventHandler);
     }
   });
 }
@@ -115,6 +116,8 @@ addInitialCards();
 
 editButton.addEventListener("click", function () {
   popupEdit.classList.toggle("popup_opened");
+  document.addEventListener("keydown", escEventHandler);
+  enableValidation(configForm);
   inputName.value = nameUser.textContent;
   inputAbout.value = aboutMe.textContent;
 });
@@ -123,21 +126,23 @@ closeEditButton.addEventListener("click", function () {
   popupEdit.classList.toggle("popup_opened");
 });
 
+addButton.addEventListener("click", function () {
+  inputLink.value = "";
+  inputTitle.value = "";
+  popupAdd.classList.toggle("popup_opened");
+  document.addEventListener("keydown", escEventHandler);
+});
+
+closeAddButton.addEventListener("click", function () {
+  popupAdd.classList.toggle("popup_opened");
+});
+
 formEdit.addEventListener("submit", function (evt) {
   evt.preventDefault();
   nameUser.textContent = inputName.value;
   aboutMe.textContent = inputAbout.value;
   popupEdit.classList.toggle("popup_opened");
-});
-
-addButton.addEventListener("click", function () {
-  inputLink.value = "";
-  inputTitle.value = "";
-  popupAdd.classList.toggle("popup_opened");
-});
-
-closeAddButton.addEventListener("click", function () {
-  popupAdd.classList.toggle("popup_opened");
+  document.addEventListener("keydown", escEventHandler);
 });
 
 formAdd.addEventListener("submit", function (evt) {
@@ -157,4 +162,25 @@ formAdd.addEventListener("submit", function (evt) {
 
 closeImageButton.addEventListener("click", function () {
   popupImage.classList.toggle("popup_opened");
+});
+
+function escEventHandler(evt) {
+  if (evt.key === "Escape") {
+    closePopups();
+  }
+}
+
+function closePopups() {
+  popupEdit.classList.remove("popup_opened");
+  popupAdd.classList.remove("popup_opened");
+  popupImage.classList.remove("popup_opened");
+  document.removeEventListener("keydown", escEventHandler);
+}
+
+document.querySelectorAll(".popup").forEach((form) => {
+  form.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("popup")) {
+      closePopups();
+    }
+  });
 });
