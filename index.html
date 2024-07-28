@@ -61,7 +61,7 @@
             class="popup__close-icon"
           />
           <h2 class="popup__title">Editar perfil</h2>
-          <form class="popup__form form" id="formEdit">
+          <form class="popup__form form" id="formEdit" novalidate>
             <fieldset class="form__fieldset">
               <div class="form__element">
                 <input
@@ -69,13 +69,16 @@
                   id="inputName"
                   placeholder="Nombre"
                   class="form__input"
-                  value=""
+                  minlength="2"
+                  maxlength="40"
+                  required
                 />
                 <img
                   src="./images/input_line.png"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
+                <span class="form__input-error inputName-error"></span>
               </div>
 
               <div class="form__element">
@@ -84,13 +87,17 @@
                   id="inputAbout"
                   placeholder="Acerca de mi"
                   class="form__input"
-                  value=""
+                  minlength="2"
+                  maxlength="200"
+                  required
                 />
+
                 <img
                   src="./images/input_line.png"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
+                <span class="form__input-error inputAbout-error"></span>
               </div>
             </fieldset>
             <button type="submit" class="form__button">Guardar</button>
@@ -106,7 +113,7 @@
             class="popup__close-icon"
           />
           <h2 class="popup__title">Nuevo lugar</h2>
-          <form class="popup__form form" id="formAdd">
+          <form class="popup__form form" id="formAdd" novalidate>
             <fieldset class="form__fieldset">
               <div class="form__element">
                 <input
@@ -114,28 +121,34 @@
                   id="inputTitle"
                   placeholder="Titulo"
                   class="form__input"
-                  value=""
+                  minlength="2"
+                  maxlength="30"
+                  required
                 />
+
                 <img
                   src="./images/input_line.png"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
+                <span class="form__input-error inputTitle-error"></span>
               </div>
 
               <div class="form__element">
                 <input
-                  type="text"
+                  type="url"
                   id="inputLink"
                   placeholder="Enlace de la imagen"
                   class="form__input"
-                  value=""
+                  required
                 />
+
                 <img
                   src="./images/input_line.png"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
+                <span class="form__input-error inputLink-error"></span>
               </div>
             </fieldset>
             <button type="submit" class="form__button">Crear</button>
@@ -179,6 +192,7 @@
       </template>
 
       <script src="scripts/script.js"></script>
+      <script src="scripts/validate.js"></script>
     </div>
   </body>
 </html>
