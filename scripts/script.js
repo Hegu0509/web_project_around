@@ -117,7 +117,6 @@ addInitialCards();
 editButton.addEventListener("click", function () {
   popupEdit.classList.toggle("popup_opened");
   document.addEventListener("keydown", escEventHandler);
-  enableValidation(configForm);
   inputName.value = nameUser.textContent;
   inputAbout.value = aboutMe.textContent;
 });
@@ -147,7 +146,6 @@ formEdit.addEventListener("submit", function (evt) {
 
 formAdd.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
   const newCardData = {
     name: inputTitle.value,
     link: inputLink.value,
