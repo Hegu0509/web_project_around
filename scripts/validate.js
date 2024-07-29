@@ -71,7 +71,15 @@ const enableValidation = (configForm) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
     });
-    setEventListeners(formElement, configForm);
+    //setEventListeners(formElement, configForm);
+
+    const fieldsetList = Array.from(
+      formElement.querySelectorAll(configForm.fieldsetSelector)
+    );
+
+    fieldsetList.forEach((fieldset) => {
+      setEventListeners(fieldset, configForm);
+    });
   });
 };
 
@@ -79,6 +87,7 @@ const configForm = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
+  fieldsetSelector: ".form__fieldset",
   inactiveButtonClass: "button_inactive",
   inputErrorClass: "form__input_type_error",
   errorClass: "form__input-error_active",

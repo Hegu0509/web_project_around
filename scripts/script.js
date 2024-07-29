@@ -119,6 +119,7 @@ editButton.addEventListener("click", function () {
   document.addEventListener("keydown", escEventHandler);
   inputName.value = nameUser.textContent;
   inputAbout.value = aboutMe.textContent;
+  enableValidation(configForm);
 });
 
 closeEditButton.addEventListener("click", function () {
