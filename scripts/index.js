@@ -1,3 +1,7 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+import { closePopups, escEventHandler } from "./utils.js";
+
 // Popup Edit
 const editButton = document.querySelector(".profile__info-edit-button");
 const popupEdit = document.querySelector("#popupEdit");
@@ -20,8 +24,8 @@ const closeImageButton = popupImage.querySelector(".popup__close-icon-image");
 
 const nameUser = document.querySelector(".profile__info-name");
 const aboutMe = document.querySelector(".profile__info-occupation");
+
 const placeGrid = document.querySelector(".place-grid");
-const templateCard = document.querySelector("#templateCard").content;
 
 // Array de tarjetas iniciales
 const initialCards = [
@@ -57,69 +61,36 @@ const initialCards = [
   },
 ];
 
-function addEventListenersToCard(cardElement) {
-  const deleteButton = cardElement.querySelector(
-    ".place-grid__element-icon-trash"
-  );
-  const likeButton = cardElement.querySelector(
-    ".place-grid__element-icon-like"
-  );
-  const image = cardElement.querySelector(".place-grid__element-image");
+// Configuracion para la validacion de formularios
+const configForm = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  fieldsetSelector: ".form__fieldset",
+  inactiveButtonClass: "button_inactive",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+};
 
-  deleteButton.addEventListener("click", function (evt) {
-    if (evt) {
-      evt.target.closest(".place-grid__element").remove();
-    }
-  });
-
-  likeButton.addEventListener("click", function (evt) {
-    if (evt) {
-      evt.target.classList.toggle("place-grid__element-icon-like_active");
-    }
-  });
-
-  image.addEventListener("click", function (evt) {
-    if (evt) {
-      popupImage.classList.toggle("popup_opened");
-      popupImage.querySelector(".popup__image").src = evt.target.src;
-      popupImage.querySelector(".popup__image-name").textContent =
-        evt.target.alt;
-      document.addEventListener("keydown", escEventHandler);
-    }
-  });
-}
-
-function createCard(card) {
-  const cardElement = templateCard
-    .querySelector(".place-grid__element")
-    .cloneNode(true);
-  cardElement.querySelector(".place-grid__element-image").src = card.link;
-  cardElement.querySelector(".place-grid__element-image").alt =
-    card.description;
-  cardElement.querySelector(".place-grid__element-text").textContent =
-    card.name;
-
-  addEventListenersToCard(cardElement);
-
-  return cardElement;
-}
+const formValidator = new FormValidator(configForm, "submit");
 
 function addInitialCards() {
   initialCards.forEach((card) => {
-    const cardElement = createCard(card);
-
+    const newCard = new Card(card, "place-grid__element");
+    const cardElement = newCard.createCard();
     placeGrid.append(cardElement);
   });
 }
 
 addInitialCards();
+formValidator.enableValidation();
 
 editButton.addEventListener("click", function () {
   popupEdit.classList.toggle("popup_opened");
   document.addEventListener("keydown", escEventHandler);
   inputName.value = nameUser.textContent;
   inputAbout.value = aboutMe.textContent;
-  enableValidation(configForm);
+  formValidator.enableValidation();
 });
 
 closeEditButton.addEventListener("click", function () {
@@ -153,7 +124,8 @@ formAdd.addEventListener("submit", function (evt) {
     description: inputTitle.value,
   };
 
-  const newCardElement = createCard(newCardData);
+  const newElement = new Card(newCardData, "place-grid__element");
+  const newCardElement = newElement.createCard();
 
   placeGrid.prepend(newCardElement);
   popupAdd.classList.toggle("popup_opened");
@@ -162,19 +134,6 @@ formAdd.addEventListener("submit", function (evt) {
 closeImageButton.addEventListener("click", function () {
   popupImage.classList.toggle("popup_opened");
 });
-
-function escEventHandler(evt) {
-  if (evt.key === "Escape") {
-    closePopups();
-  }
-}
-
-function closePopups() {
-  popupEdit.classList.remove("popup_opened");
-  popupAdd.classList.remove("popup_opened");
-  popupImage.classList.remove("popup_opened");
-  document.removeEventListener("keydown", escEventHandler);
-}
 
 document.querySelectorAll(".popup").forEach((form) => {
   form.addEventListener("click", (evt) => {
