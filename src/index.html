@@ -7,7 +7,6 @@
     <meta name="author" content="Gustavo Morales" />
     <meta name="keywords" content="HTML, CSS, Responsive, JS" />
 
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" />
 
     <title>Around The U.S.</title>
@@ -16,12 +15,12 @@
     <div class="page">
       <header class="header">
         <img
-          src="./images/logo_around.svg"
+          src="<%= require('./images/logo_around.svg')%>"
           alt="Logotipo Around US"
           class="header__logo"
         />
         <img
-          src="./images/line_header.png"
+          src="<%= require('./images/line_header.png')%>"
           alt="Linea para el encabezado"
           class="header__line"
         />
@@ -30,7 +29,7 @@
         <section class="profile" id="profile">
           <div class="profile__info">
             <img
-              src="./images/avatar.png"
+              src="<%= require('./images/avatar.png')%>"
               alt="Foto de Jacques Cousteau"
               class="profile__avatar"
             />
@@ -38,7 +37,10 @@
               <div class="profile__info-row">
                 <p class="profile__info-name">Jacques Cousteau</p>
                 <button class="profile__info-edit-button" type="button">
-                  <img src="./images/icons/edit.svg" alt="Icono editar" />
+                  <img
+                    src="<%= require('./images/icons/edit.svg')%>"
+                    alt="Icono editar"
+                  />
                 </button>
               </div>
 
@@ -53,13 +55,15 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2024. Gustavo Morales</p>
       </footer>
+
       <div class="popup" id="popupEdit">
         <div class="popup__container">
-          <img
-            src="./images/icons/close.png"
-            alt="Icono cerrar ventana"
-            class="popup__close-icon"
-          />
+          <button class="popup__close-icon" type="button">
+            <img
+              src="<%= require('./images/icons/close.png')%>"
+              alt="Icono cerrar ventana"
+            />
+          </button>
           <h2 class="popup__title">Editar perfil</h2>
           <form class="popup__form form" id="formEdit" novalidate>
             <fieldset class="form__fieldset">
@@ -67,6 +71,7 @@
                 <input
                   type="text"
                   id="inputName"
+                  name="inputName"
                   placeholder="Nombre"
                   class="form__input"
                   minlength="2"
@@ -74,7 +79,7 @@
                   required
                 />
                 <img
-                  src="./images/input_line.png"
+                  src="<%= require('./images/input_line.png')%>"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
@@ -85,6 +90,7 @@
                 <input
                   type="text"
                   id="inputAbout"
+                  name="inputAbout"
                   placeholder="Acerca de mi"
                   class="form__input"
                   minlength="2"
@@ -93,7 +99,7 @@
                 />
 
                 <img
-                  src="./images/input_line.png"
+                  src="<%= require('./images/input_line.png')%>"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
@@ -108,11 +114,12 @@
 
       <div class="popup" id="popupAdd">
         <div class="popup__container">
-          <img
-            src="./images/icons/close.png"
-            alt="Icono cerrar ventana"
-            class="popup__close-icon"
-          />
+          <button class="popup__close-icon" type="button">
+            <img
+              src="<%= require('./images/icons/close.png')%>"
+              alt="Icono cerrar ventana"
+            />
+          </button>
           <h2 class="popup__title">Nuevo lugar</h2>
           <form class="popup__form form" id="formAdd" novalidate>
             <fieldset class="form__fieldset">
@@ -120,6 +127,7 @@
                 <input
                   type="text"
                   id="inputTitle"
+                  name="inputTitle"
                   placeholder="Titulo"
                   class="form__input"
                   minlength="2"
@@ -128,7 +136,7 @@
                 />
 
                 <img
-                  src="./images/input_line.png"
+                  src="<%= require('./images/input_line.png')%>"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
@@ -139,13 +147,14 @@
                 <input
                   type="url"
                   id="inputLink"
+                  name="inputLink"
                   placeholder="Enlace de la imagen"
                   class="form__input"
                   required
                 />
 
                 <img
-                  src="./images/input_line.png"
+                  src="<%= require('./images/input_line.png')%>"
                   alt="Linea de caja de texto"
                   class="form__input-line"
                 />
@@ -160,14 +169,15 @@
 
       <div class="popup" id="popupImage">
         <div class="popup__container-image">
-          <img
-            src="./images/icons/close.png"
-            alt="Icono cerrar ventana"
-            class="popup__close-icon-image"
-          />
+          <button class="popup__close-icon" type="button">
+            <img
+              src="<%= require('./images/icons/close.png')%>"
+              alt="Icono cerrar ventana"
+            />
+          </button>
           <img
             class="popup__image"
-            src="./images/places/bald-mountains.jpg"
+            src="<%= require('./images/places/bald-mountains.jpg')%>"
             id="image"
             alt="Imagen del popup"
           />
@@ -178,7 +188,7 @@
       <template id="templateCard">
         <div class="place-grid__element">
           <img
-            src="./images/icons/trash.svg"
+            src="<%= require('./images/icons/trash.svg')%>"
             alt="Icono Eliminar"
             class="place-grid__element-icon-trash"
           />
@@ -193,7 +203,7 @@
         </div>
       </template>
 
-      <script type="module" src="./scripts/index.js"></script>
+      <script type="module" src="./index.js"></script>
     </div>
   </body>
 </html>

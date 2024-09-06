@@ -19,6 +19,8 @@
   width: 40px;
   height: 40px;
   position: absolute;
+  background-color: transparent;
+  border: none;
   top: -42px;
   left: 435px;
 }
@@ -32,6 +34,8 @@
   width: 40px;
   height: 40px;
   position: absolute;
+  background-color: transparent;
+  border: none;
   top: -45px;
   left: 437px;
 }
