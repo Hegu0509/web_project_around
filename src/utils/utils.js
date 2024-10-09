@@ -7,3 +7,7 @@ export const aboutMe = document.querySelector(".profile__info-occupation");
 export const inputTitle = document.querySelector("#inputTitle");
 export const inputLink = document.querySelector("#inputLink");
 export const placeGrid = document.querySelector(".place-grid");
+export const editAvatarButton = document.querySelector(
+  ".profile__avatar-container"
+);
+export const avatarImage = document.querySelector(".profile__avatar");

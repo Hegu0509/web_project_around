@@ -57,6 +57,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html", // ruta a nuestro archivo index.html
+      favicon: "./src/favicon.ico", // ruta a tu favicon
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(), // conecta el plugin para fusionar archivos CSS

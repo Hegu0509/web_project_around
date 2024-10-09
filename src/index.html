@@ -28,11 +28,21 @@
       <main class="content">
         <section class="profile" id="profile">
           <div class="profile__info">
-            <img
-              src="<%= require('./images/avatar.png')%>"
-              alt="Foto de Jacques Cousteau"
-              class="profile__avatar"
-            />
+            <div class="profile__avatar-container">
+              <img
+                src="<%= require('./images/avatar.png')%>"
+                alt="Foto de Jacques Cousteau"
+                class="profile__avatar"
+              />
+              <div class="overlay">
+                <img
+                  src="<%= require('./images/icons/pen.png')%>"
+                  alt="Icono editar foto"
+                  class="profile__avatar-icon"
+                />
+              </div>
+            </div>
+
             <div class="profile__info-column">
               <div class="profile__info-row">
                 <p class="profile__info-name">Jacques Cousteau</p>
@@ -185,6 +195,60 @@
         </div>
       </div>
 
+      <div class="popup" id="popupConfirmation">
+        <div class="popup__container-confirmation">
+          <button class="popup__close-icon" type="button">
+            <img
+              src="<%= require('./images/icons/close.png')%>"
+              alt="Icono cerrar ventana"
+            />
+          </button>
+          <form class="popup__form form" id="confirmationForm" novalidate>
+            <p class="popup__title popup__title-confirmation">
+              ¿Estás seguro/a?
+            </p>
+            <button class="form__button form__button-confirm" type="submit">
+              Si
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup" id="popupEditAvatar">
+        <div class="popup__container-edit-avatar">
+          <button class="popup__close-icon" type="button">
+            <img
+              src="<%= require('./images/icons/close.png')%>"
+              alt="Icono cerrar ventana"
+            />
+          </button>
+          <h2 class="popup__title">Cambiar foto de perfil</h2>
+          <form class="popup__form form" id="formEditAvatar" novalidate>
+            <fieldset class="form__fieldset">
+              <div class="form__element">
+                <input
+                  type="url"
+                  id="inputLink"
+                  name="inputLink"
+                  placeholder="Enlace de la imagen"
+                  class="form__input"
+                  required
+                />
+
+                <img
+                  src="<%= require('./images/input_line.png')%>"
+                  alt="Linea de caja de texto"
+                  class="form__input-line"
+                />
+                <span class="form__input-error inputLink-error"></span>
+              </div>
+
+              <button type="submit" class="form__button">Guardar</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
       <template id="templateCard">
         <div class="place-grid__element">
           <img
@@ -195,10 +259,13 @@
           <img class="place-grid__element-image" />
           <div class="place-grid__element-row">
             <p class="place-grid__element-text"></p>
-            <button
-              class="place-grid__element-icon-like"
-              type="button"
-            ></button>
+            <div class="place-grid__element-column">
+              <button
+                class="place-grid__element-icon-like"
+                type="button"
+              ></button>
+              <span class="place-grid__element-counter-like">0</span>
+            </div>
           </div>
         </div>
       </template>
