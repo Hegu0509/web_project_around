@@ -42,11 +42,6 @@
   opacity: 1;
 }
 
-.profile__avatar:hover {
-  filter: opacity(0.5);
-  background-image: url("../images/icons/pen.png");
-}
-
 .profile__info {
   display: flex;
   align-items: center;
